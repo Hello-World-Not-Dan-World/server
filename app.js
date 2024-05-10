@@ -8,7 +8,8 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, "../client//build")));
+//app.use(express.static(path.join(__dirname, "../client//build")));
+app.use(express.static("cctvData/cctv1"));
 app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));

@@ -20,4 +20,6 @@ wantedRouter.get("/", (req, res) => {
   });
 });
 
+wantedRouter.get("/img", (req, res) => {});
+
 module.exports = wantedRouter;

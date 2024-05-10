@@ -1,32 +1,3 @@
 {
-  "cctv1": {
-    "state": "dirty",
-    "price": 0,
-    "incentive": 0
-  },
-  "cctv2": {
-    "state": "clean",
-    "price": 0,
-    "incentive": 0
-  },
-  "cctv3": {
-    "state": "clean",
-    "price": 0,
-    "incentive": 0
-  },
-  "cctv4": {
-    "state": "clean",
-    "price": 0,
-    "incentive": 0
-  },
-  "cctv5": {
-    "state": "clean",
-    "price": 0,
-    "incentive": 0
-  },
-  "cctv6": {
-    "state": "clean",
-    "price": 0,
-    "incentive": 0
-  }
+  "mission": []
 }

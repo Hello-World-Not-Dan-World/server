@@ -3,16 +3,10 @@ const fs = require("fs");
 
 const cctvRouter = express.Router();
 
-cctvRouter.post("/cctv", (req, res) => {
-  const currentDate = new Date();
-  const formattedDate = currentDate
-    .toISOString()
-    .replace(/:/g, "-")
-    .replace(/\..+/, "");
-
+cctvRouter.post("/", (req, res) => {
   const frameData = req.body.img;
   const decodedFrame = Buffer.from(frameData, "base64");
-  const filePath = `./cctvData/${req.body.id}/${formattedDate}.jpg`;
+  const filePath = `./cctvData/cctv1/${req.body.photonum}.jpg`;
   fs.writeFile(filePath, decodedFrame, (err) => {
     if (err) throw err;
     console.log(`'${filePath}' 파일이 성공적으로 저장되었습니다.`);
@@ -26,28 +20,15 @@ cctvRouter.post("/cctv", (req, res) => {
     try {
       // JSON 데이터 파싱
       const jsonData = JSON.parse(data);
-
-      // JSON 데이터 수정
-      if (req.body.id == "cctv1") {
-        jsonData.cctv1.state = "dirty";
-      }
-      if (req.body.id == "cctv2") {
-        jsonData.cctv2.state = "dirty";
-      }
-      if (req.body.id == "cctv3") {
-        jsonData.cctv3.state = "dirty";
-      }
-      if (req.body.id == "cctv4") {
-        jsonData.cctv4.state = "dirty";
-      }
-      if (req.body.id == "cctv5") {
-        jsonData.cctv5.state = "dirty";
-      }
-      if (req.body.id == "cctv6") {
-        jsonData.cctv6.state = "dirty";
-      }
-
-      // 수정된 JSON 데이터를 다시 문자열로 변환
+      var numberList = req.body.location.map(function (str) {
+        return parseInt(str, 10); // parseInt() 함수를 사용하여 문자열을 숫자로 변환합니다.
+      });
+      jsonData.mission.push({
+        location: numberList,
+        price: 1000,
+        incentive: 0,
+        photonum: parseInt(req.body.photonum, 10),
+      });
       const modifiedJsonData = JSON.stringify(jsonData, null, 2);
 
       // 수정된 JSON 데이터를 파일에 쓰기

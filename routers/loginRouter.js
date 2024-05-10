@@ -6,9 +6,9 @@ let credit = { user: 5000, hunter: 0 };
 
 loginRouter.post("/login", (req, res) => {
   if (req.body.id == "user") {
-    res.send(credit.user);
+    res.send(JSON.stringify(credit));
   } else if (req.body.id == "hunter") {
-    res.send(credit.hunter);
+    res.send(JSON.stringify(credit));
   }
 });
 

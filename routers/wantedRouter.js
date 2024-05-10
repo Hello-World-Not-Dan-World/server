@@ -9,8 +9,9 @@ wantedRouter.get("/", (req, res) => {
       console.error("Error reading file:", err);
       res.send("err");
       return;
+    } else {
+      res.send(data.mission);
     }
-    res.send(data.mission);
   });
 });
 

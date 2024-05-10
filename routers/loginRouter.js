@@ -5,9 +5,9 @@ const loginRouter = express.Router();
 let credit = { user: 5000, hunter: 0 };
 
 loginRouter.post("/login", (req, res) => {
-  if (req.body.mode == "user") {
+  if (req.body.id == "user") {
     res.send(credit.user);
-  } else {
+  } else if (req.body.id == "hunter") {
     res.send(credit.hunter);
   }
 });

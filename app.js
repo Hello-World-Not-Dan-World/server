@@ -12,8 +12,8 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 
-app.use("/cctv", cctvRouter);
-app.use("/wanted", wantedRouter);
-app.use("/", loginRouter);
+app.use("/api/cctv", cctvRouter);
+app.use("/api/wanted", wantedRouter);
+app.use("/api", loginRouter);
 
 module.exports = app;

@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 
 const loginRouter = express.Router();
 
@@ -14,6 +15,7 @@ loginRouter.post("/login", (req, res) => {
 
 loginRouter.post("/pay", (req, res) => {
   credit.user = credit.user - req.body.amount;
+  console.log(req.body.amount);
   fs.readFile("./cctvData/database.json", "utf8", (err, data) => {
     if (err) {
       console.error("Error reading file:", err);

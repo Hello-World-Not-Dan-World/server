@@ -21,7 +21,7 @@ cctvRouter.post("/", (req, res) => {
       // JSON 데이터 파싱
       const jsonData = JSON.parse(data);
       var numberList = req.body.location.map(function (str) {
-        return parseInt(str, 10); // parseInt() 함수를 사용하여 문자열을 숫자로 변환합니다.
+        return parseFloat(str, 10); // parseInt() 함수를 사용하여 문자열을 숫자로 변환합니다.
       });
       jsonData.mission.push({
         location: numberList,

@@ -11,6 +11,6 @@ app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 
 app.use("/cctv", cctvRouter);
 app.use("/wanted", wantedRouter);
-app.use("/login", loginRouter);
+app.use("/", loginRouter);
 
 module.exports = app;

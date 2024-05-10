@@ -9,8 +9,13 @@ wantedRouter.get("/", (req, res) => {
       console.error("Error reading file:", err);
       res.send("err");
       return;
-    } else {
-      res.send(data.mission);
+    }
+    try {
+      console.log(data);
+      res.send(data);
+    } catch (error) {
+      console.error("Error parsing JSON data:", error);
+      res.send("err");
     }
   });
 });
